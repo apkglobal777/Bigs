@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Kidzora - Learn, Play, Create and Become Amazing! Fun educational activities for children.">
+    <title>Kidzora | Learn • Play • Create</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Nunito:wght@400;600;700;800&display=swap"
+        rel="stylesheet">
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        fredoka: ['Fredoka', 'sans-serif'],
+                        nunito: ['Nunito', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            blue: '#2563EB',
+                            purple: '#8B5CF6',
+                            yellow: '#F59E0B',
+                            orange: '#F97316',
+                            green: '#10B981',
+                            pink: '#EC4899',
+                            dark: '#1E293B',
+                            bg: '#F8FAFC'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Nunito', sans-serif;
+            background-color: #F8FAFC;
+            color: #1E293B;
+        }
+        h1, h2, h3, h4, .font-display {
+            font-family: 'Fredoka', cursive, sans-serif;
+        }
+        @keyframes float-slow {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-12px) rotate(3deg); }
+        }
+        @keyframes float-reverse {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(10px) rotate(-3deg); }
+        }
+        .animate-float {
+            animation: float-slow 4s ease-in-out infinite;
+        }
+        .animate-float-delayed {
+            animation: float-reverse 5s ease-in-out infinite;
+        }
+    </style>
+</head>
+<body class="antialiased min-h-screen flex flex-col bg-slate-50 selection:bg-amber-200">
+
+<!-- ================= NAVBAR ================= -->
+<header class="navbar sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-100 shadow-sm transition-all duration-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between gap-4">
+        <!-- Logo -->
+        <a href="index.html" class="logo flex items-center gap-2.5 text-2xl sm:text-3xl font-bold font-display text-slate-900 group">
+            <span class="inline-flex items-center justify-center w-12 h-12 rounded-2xl bg-gradient-to-tr from-blue-600 to-indigo-500 text-white text-2xl shadow-md group-hover:scale-105 transition-transform duration-200">🚀</span>
+            <span class="tracking-tight text-blue-600 font-extrabold group-hover:text-indigo-600 transition-colors">Kidzora</span>
+        </a>
+
+        <!-- Desktop Navigation -->
+        <nav id="navMenu" class="hidden lg:flex items-center gap-1.5 xl:gap-2">
+            <a href="index.html" class="active flex items-center gap-2 px-4 py-2 rounded-full font-bold text-sm text-blue-600 bg-blue-50 hover:bg-blue-100 transition-colors">
+                <i class="fa-solid fa-house text-blue-600"></i> Home
+            </a>
+            <a href="learn.html" class="flex items-center gap-2 px-3.5 py-2 rounded-full font-bold text-sm text-slate-600 hover:text-blue-600 hover:bg-slate-100 transition-colors">
+                <i class="fa-solid fa-book-open text-amber-500"></i> Learn
+            </a>
+            <a href="games.html" class="flex items-center gap-2 px-3.5 py-2 rounded-full font-bold text-sm text-slate-600 hover:text-purple-600 hover:bg-slate-100 transition-colors">
+                <i class="fa-solid fa-gamepad text-purple-500"></i> Games
+            </a>
+            <a href="quizzes.html" class="flex items-center gap-2 px-3.5 py-2 rounded-full font-bold text-sm text-slate-600 hover:text-pink-600 hover:bg-slate-100 transition-colors">
+                <i class="fa-solid fa-brain text-pink-500"></i> Quizzes
+            </a>
+            <a href="stories.html" class="flex items-center gap-2 px-3.5 py-2 rounded-full font-bold text-sm text-slate-600 hover:text-emerald-600 hover:bg-slate-100 transition-colors">
+                <i class="fa-solid fa-book text-emerald-500"></i> Stories
+            </a>
+            <a href="creativity.html" class="flex items-center gap-2 px-3.5 py-2 rounded-full font-bold text-sm text-slate-600 hover:text-orange-600 hover:bg-slate-100 transition-colors">
+                <i class="fa-solid fa-palette text-orange-500"></i> Create
+            </a>
+            <a href="achievements.html" class="flex items-center gap-2 px-3.5 py-2 rounded-full font-bold text-sm text-slate-600 hover:text-yellow-600 hover:bg-slate-100 transition-colors">
+                <i class="fa-solid fa-trophy text-yellow-500"></i> Achievements
+            </a>
+        </nav>
+
+        <!-- Actions -->
+        <div class="nav-actions flex items-center gap-3">
+            <button class="icon-btn w-10 h-10 rounded-full border border-slate-200 hover:border-slate-300 bg-slate-50 flex items-center justify-center text-lg hover:bg-slate-100 transition-colors" onclick="toggleTheme()" title="Toggle Theme" aria-label="Toggle Theme">
+                🌙
+            </button>
+            <a href="dashboard.html" class="profile-btn inline-flex items-center gap-2 px-4 py-2 rounded-full bg-amber-100 border border-amber-200 text-amber-900 font-extrabold text-sm hover:bg-amber-200 transition-colors shadow-sm">
+                <span class="text-base">👦</span> Alex
+            </a>
+            <button class="menu-btn lg:hidden w-10 h-10 rounded-xl bg-slate-100 text-slate-700 flex items-center justify-center text-xl hover:bg-slate-200 transition-colors" onclick="toggleMenu()" aria-label="Open Menu">
+                ☰
+            </button>
+        </div>
+    </div>
+
+    <!-- Mobile Drawer (hidden by default) -->
+    <div id="mobileDrawer" class="hidden lg:hidden bg-white border-t border-slate-100 px-6 py-4 space-y-2">
+        <a href="index.html" class="flex items-center gap-3 py-2.5 px-3 rounded-xl font-bold text-blue-600 bg-blue-50">
+            <i class="fa-solid fa-house"></i> Home
+        </a>
+        <a href="learn.html" class="flex items-center gap-3 py-2.5 px-3 rounded-xl font-semibold text-slate-700 hover:bg-slate-50">
+            <i class="fa-solid fa-book-open text-amber-500"></i> Learn
+        </a>
+        <a href="games.html" class="flex items-center gap-3 py-2.5 px-3 rounded-xl font-semibold text-slate-700 hover:bg-slate-50">
+            <i class="fa-solid fa-gamepad text-purple-500"></i> Games
+        </a>
+        <a href="quizzes.html" class="flex items-center gap-3 py-2.5 px-3 rounded-xl font-semibold text-slate-700 hover:bg-slate-50">
+            <i class="fa-solid fa-brain text-pink-500"></i> Quizzes
+        </a>
+        <a href="stories.html" class="flex items-center gap-3 py-2.5 px-3 rounded-xl font-semibold text-slate-700 hover:bg-slate-50">
+            <i class="fa-solid fa-book text-emerald-500"></i> Stories
+        </a>
+        <a href="creativity.html" class="flex items-center gap-3 py-2.5 px-3 rounded-xl font-semibold text-slate-700 hover:bg-slate-50">
+            <i class="fa-solid fa-palette text-orange-500"></i> Create
+        </a>
+        <a href="achievements.html" class="flex items-center gap-3 py-2.5 px-3 rounded-xl font-semibold text-slate-700 hover:bg-slate-50">
+            <i class="fa-solid fa-trophy text-yellow-500"></i> Achievements
+        </a>
+    </div>
+</header>
+
+<main class="flex-1">
+    <!-- ================= HERO ================= -->
+    <section class="hero relative overflow-hidden bg-gradient-to-b from-blue-50/70 via-indigo-50/40 to-slate-50 pt-12 pb-20 lg:py-24">
+        <!-- Background decorative ambient circles -->
+        <div class="absolute -top-24 -left-24 w-96 h-96 bg-blue-200/40 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="absolute top-1/2 -right-24 w-96 h-96 bg-purple-200/40 rounded-full blur-3xl pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+                <!-- Hero Content -->
+                <div class="hero-content lg:col-span-7 text-center lg:text-left space-y-6">
+                    <div class="small-badge inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-amber-200/80 shadow-sm text-amber-800 font-bold text-xs sm:text-sm uppercase tracking-wider">
+                        <span>⭐</span> Welcome to Kidzora
+                    </div>
+                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black font-display text-slate-900 leading-[1.15] tracking-tight">
+                        Learning Has Never Been <br class="hidden sm:inline">
+                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600">This Much Fun!</span>
+                    </h1>
+                    <p class="text-lg sm:text-xl text-slate-600 font-medium max-w-2xl mx-auto lg:mx-0 leading-relaxed">
+                        Explore exciting lessons, play brain-boosting games, take fun quizzes and unlock amazing achievements.
+                    </p>
+                    <div class="hero-buttons flex flex-wrap items-center justify-center lg:justify-start gap-4 pt-2">
+                        <a href="learn.html" class="btn primary inline-flex items-center justify-center gap-3 px-8 py-4 rounded-2xl bg-blue-600 hover:bg-blue-700 text-white font-extrabold text-base shadow-lg shadow-blue-500/25 hover:shadow-xl hover:shadow-blue-500/35 hover:-translate-y-0.5 transition-all">
+                            🚀 Start Learning
+                        </a>
+                        <a href="games.html" class="btn secondary inline-flex items-center justify-center gap-3 px-8 py-4 rounded-2xl bg-white hover:bg-slate-50 text-slate-800 font-extrabold text-base border-2 border-slate-200 shadow-sm hover:border-slate-300 hover:-translate-y-0.5 transition-all">
+                            🎮 Play Games
+                        </a>
+                    </div>
+                    <!-- Hero Stats -->
+                    <div class="hero-stats pt-6 grid grid-cols-3 gap-4 max-w-lg mx-auto lg:mx-0">
+                        <div class="bg-white/80 backdrop-blur-sm border border-slate-200/70 p-4 rounded-2xl text-center shadow-xs">
+                            <strong class="block text-2xl sm:text-3xl font-extrabold font-display text-blue-600">500+</strong>
+                            <span class="text-xs sm:text-sm font-bold text-slate-500 uppercase tracking-wide">Activities</span>
+                        </div>
+                        <div class="bg-white/80 backdrop-blur-sm border border-slate-200/70 p-4 rounded-2xl text-center shadow-xs">
+                            <strong class="block text-2xl sm:text-3xl font-extrabold font-display text-amber-500">100+</strong>
+                            <span class="text-xs sm:text-sm font-bold text-slate-500 uppercase tracking-wide">Badges</span>
+                        </div>
+                        <div class="bg-white/80 backdrop-blur-sm border border-slate-200/70 p-4 rounded-2xl text-center shadow-xs">
+                            <strong class="block text-2xl sm:text-3xl font-extrabold font-display text-emerald-500">50+</strong>
+                            <span class="text-xs sm:text-sm font-bold text-slate-500 uppercase tracking-wide">Games</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- HERO ART -->
+                <div class="hero-art lg:col-span-5 relative flex items-center justify-center min-h-[380px] sm:min-h-[440px]">
+                    <div class="relative w-72 sm:w-88 h-72 sm:h-88 rounded-full bg-gradient-to-tr from-blue-400 via-indigo-500 to-purple-500 p-3 shadow-2xl flex items-center justify-center">
+                        <div class="w-full h-full rounded-full bg-gradient-to-br from-indigo-900 to-slate-900 flex flex-col items-center justify-center relative overflow-hidden border-4 border-white/20">
+                            <!-- Background star dust -->
+                            <div class="absolute inset-0 opacity-40 bg-[radial-gradient(#fff_1px,transparent_1px)] [background-size:16px_16px]"></div>
+                            
+                            <!-- Astronaut Character -->
+                            <div class="child-character text-7xl sm:text-8xl animate-float filter drop-shadow-xl z-10">
+                                🧑‍🚀
+                            </div>
+                            <div class="planet absolute bottom-4 left-6 text-4xl animate-float-delayed">🌎</div>
+                            <div class="rocket absolute top-6 right-6 text-4xl animate-float">🚀</div>
+                        </div>
+
+                        <!-- Floating Badges / Cards -->
+                        <div class="cloud cloud1 absolute -top-4 -left-6 text-5xl filter drop-shadow opacity-90 animate-float-delayed">☁️</div>
+                        <div class="cloud cloud2 absolute -bottom-4 -right-4 text-5xl filter drop-shadow opacity-90 animate-float">☁️</div>
+
+                        <div class="floating-card card-one absolute -left-8 top-16 bg-white border-2 border-amber-200 px-4 py-2 rounded-2xl shadow-lg font-display font-extrabold text-amber-600 text-sm flex items-center gap-1.5 animate-float">
+                            ⭐ +50 XP
+                        </div>
+                        <div class="floating-card card-two absolute -right-6 top-1/3 bg-white border-2 border-purple-200 px-4 py-2 rounded-2xl shadow-lg font-display font-extrabold text-purple-600 text-sm flex items-center gap-1.5 animate-float-delayed">
+                            🏆 New Badge!
+                        </div>
+                        <div class="floating-card card-three absolute bottom-4 -left-4 bg-white border-2 border-blue-200 px-4 py-2 rounded-2xl shadow-lg font-display font-extrabold text-blue-600 text-sm flex items-center gap-1.5 animate-float">
+                            📚 Learn
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= SUBJECTS ================= -->
+    <section class="section py-16 sm:py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="section-heading flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-12">
+                <div>
+                    <span class="section-label inline-block text-xs font-black tracking-wider uppercase text-blue-600 bg-blue-50 px-3 py-1 rounded-full mb-2">EXPLORE</span>
+                    <h2 class="text-3xl sm:text-4xl font-black font-display text-slate-900 tracking-tight">
+                        What Do You Want To Learn? 📚
+                    </h2>
+                    <p class="text-slate-600 font-medium mt-1">
+                        Choose your favorite subject and start your adventure.
+                    </p>
+                </div>
+                <a href="learn.html" class="view-link inline-flex items-center gap-1.5 font-bold text-blue-600 hover:text-blue-700 text-base group">
+                    View All <span class="group-hover:translate-x-1 transition-transform">→</span>
+                </a>
+            </div>
+
+            <div class="subject-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Math -->
+                <a href="mathematics.html" class="subject-card math group bg-slate-50 hover:bg-blue-50/50 border-2 border-slate-200 hover:border-blue-300 rounded-3xl p-6 transition-all duration-200 hover:-translate-y-1 hover:shadow-lg flex flex-col justify-between">
+                    <div>
+                        <div class="subject-icon w-14 h-14 rounded-2xl bg-blue-100 text-3xl flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
+                            🔢
+                        </div>
+                        <h3 class="text-2xl font-bold font-display text-slate-900 group-hover:text-blue-600 transition-colors">Mathematics</h3>
+                        <p class="text-slate-600 font-medium text-sm mt-2 leading-relaxed">
+                            Numbers, puzzles, geometry and logical thinking.
+                        </p>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-slate-200/70">
+                        <div class="progress w-full bg-slate-200 rounded-full h-3 overflow-hidden">
+                            <div class="bg-blue-600 h-3 rounded-full transition-all duration-500" style="width:72%"></div>
+                        </div>
+                        <span class="inline-block mt-2 font-bold text-xs text-blue-700 font-display">72% Complete</span>
+                    </div>
+                </a>
+
+                <!-- Science -->
+                <a href="science.html" class="subject-card science group bg-slate-50 hover:bg-emerald-50/50 border-2 border-slate-200 hover:border-emerald-300 rounded-3xl p-6 transition-all duration-200 hover:-translate-y-1 hover:shadow-lg flex flex-col justify-between">
+                    <div>
+                        <div class="subject-icon w-14 h-14 rounded-2xl bg-emerald-100 text-3xl flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
+                            🔬
+                        </div>
+                        <h3 class="text-2xl font-bold font-display text-slate-900 group-hover:text-emerald-600 transition-colors">Science</h3>
+                        <p class="text-slate-600 font-medium text-sm mt-2 leading-relaxed">
+                            Explore space, animals, plants and our amazing world.
+                        </p>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-slate-200/70">
+                        <div class="progress w-full bg-slate-200 rounded-full h-3 overflow-hidden">
+                            <div class="bg-emerald-500 h-3 rounded-full transition-all duration-500" style="width:48%"></div>
+                        </div>
+                        <span class="inline-block mt-2 font-bold text-xs text-emerald-700 font-display">48% Complete</span>
+                    </div>
+                </a>
+
+                <!-- English -->
+                <a href="english.html" class="subject-card english group bg-slate-50 hover:bg-amber-50/50 border-2 border-slate-200 hover:border-amber-300 rounded-3xl p-6 transition-all duration-200 hover:-translate-y-1 hover:shadow-lg flex flex-col justify-between">
+                    <div>
+                        <div class="subject-icon w-14 h-14 rounded-2xl bg-amber-100 text-3xl flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
+                            📖
+                        </div>
+                        <h3 class="text-2xl font-bold font-display text-slate-900 group-hover:text-amber-600 transition-colors">English</h3>
+                        <p class="text-slate-600 font-medium text-sm mt-2 leading-relaxed">
+                            Improve vocabulary, grammar, reading and storytelling.
+                        </p>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-slate-200/70">
+                        <div class="progress w-full bg-slate-200 rounded-full h-3 overflow-hidden">
+                            <div class="bg-amber-500 h-3 rounded-full transition-all duration-500" style="width:65%"></div>
+                        </div>
+                        <span class="inline-block mt-2 font-bold text-xs text-amber-700 font-display">65% Complete</span>
+                    </div>
+                </a>
+
+                <!-- Coding -->
+                <a href="coding.html" class="subject-card coding group bg-slate-50 hover:bg-purple-50/50 border-2 border-slate-200 hover:border-purple-300 rounded-3xl p-6 transition-all duration-200 hover:-translate-y-1 hover:shadow-lg flex flex-col justify-between">
+                    <div>
+                        <div class="subject-icon w-14 h-14 rounded-2xl bg-purple-100 text-3xl flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
+                            💻
+                        </div>
+                        <h3 class="text-2xl font-bold font-display text-slate-900 group-hover:text-purple-600 transition-colors">Coding</h3>
+                        <p class="text-slate-600 font-medium text-sm mt-2 leading-relaxed">
+                            Learn programming and build your first projects.
+                        </p>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-slate-200/70">
+                        <div class="progress w-full bg-slate-200 rounded-full h-3 overflow-hidden">
+                            <div class="bg-purple-600 h-3 rounded-full transition-all duration-500" style="width:35%"></div>
+                        </div>
+                        <span class="inline-block mt-2 font-bold text-xs text-purple-700 font-display">35% Complete</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= DAILY CHALLENGE ================= -->
+    <section class="challenge-section py-14 bg-gradient-to-r from-amber-50 via-orange-50 to-amber-100/60 border-y border-amber-200/60">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-white rounded-3xl p-8 sm:p-10 border-2 border-amber-300 shadow-xl shadow-amber-500/10 grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
+                <div class="challenge-content md:col-span-8 space-y-4">
+                    <span class="section-label inline-block text-xs font-black tracking-wider uppercase text-amber-800 bg-amber-100 px-3 py-1 rounded-full">
+                        TODAY'S CHALLENGE
+                    </span>
+                    <h2 class="text-3xl font-black font-display text-slate-900">
+                        🧠 Can You Solve This?
+                    </h2>
+                    <p class="question text-lg text-slate-700 font-semibold leading-relaxed">
+                        Tom has <strong class="text-amber-600 font-extrabold">12 apples</strong> and gives
+                        <strong class="text-amber-600 font-extrabold">5 apples</strong> to his friend.
+                        How many apples are left?
+                    </p>
+                    <div class="answers grid grid-cols-2 gap-3 pt-2">
+                        <button onclick="checkAnswer(this, false)" class="px-5 py-3 rounded-2xl border-2 border-slate-200 bg-slate-50 hover:bg-slate-100 font-extrabold font-display text-base text-slate-700 text-left transition-all active:scale-95">
+                            A) 5
+                        </button>
+                        <button onclick="checkAnswer(this, true)" class="px-5 py-3 rounded-2xl border-2 border-slate-200 bg-slate-50 hover:bg-slate-100 font-extrabold font-display text-base text-slate-700 text-left transition-all active:scale-95">
+                            B) 7
+                        </button>
+                        <button onclick="checkAnswer(this, false)" class="px-5 py-3 rounded-2xl border-2 border-slate-200 bg-slate-50 hover:bg-slate-100 font-extrabold font-display text-base text-slate-700 text-left transition-all active:scale-95">
+                            C) 8
+                        </button>
+                        <button onclick="checkAnswer(this, false)" class="px-5 py-3 rounded-2xl border-2 border-slate-200 bg-slate-50 hover:bg-slate-100 font-extrabold font-display text-base text-slate-700 text-left transition-all active:scale-95">
+                            D) 10
+                        </button>
+                    </div>
+                    <p id="answerMessage" class="font-bold text-base min-h-[24px] pt-1"></p>
+                </div>
+                
+                <div class="challenge-art md:col-span-4 flex flex-col items-center justify-center p-6 rounded-2xl bg-amber-50 border-2 border-amber-200 text-center">
+                    <div class="text-7xl mb-2 animate-bounce">🍎</div>
+                    <div class="font-display font-black text-2xl text-amber-900 bg-white px-5 py-2 rounded-xl shadow-xs border border-amber-200">
+                        12 - 5 = ?
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= GAMES ================= -->
+    <section class="section py-16 sm:py-20 bg-slate-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="section-heading flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-12">
+                <div>
+                    <span class="section-label inline-block text-xs font-black tracking-wider uppercase text-purple-600 bg-purple-100 px-3 py-1 rounded-full mb-2">
+                        FUN ZONE
+                    </span>
+                    <h2 class="text-3xl sm:text-4xl font-black font-display text-slate-900 tracking-tight">
+                        Play & Learn 🎮
+                    </h2>
+                    <p class="text-slate-600 font-medium mt-1">
+                        Learning becomes exciting when you turn it into a game!
+                    </p>
+                </div>
+                <a href="games.html" class="view-link inline-flex items-center gap-1.5 font-bold text-purple-600 hover:text-purple-700 text-base group">
+                    All Games <span class="group-hover:translate-x-1 transition-transform">→</span>
+                </a>
+            </div>
+
+            <div class="game-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Game 1 -->
+                <a href="games.html" class="game-card group bg-white border-2 border-slate-200/80 hover:border-purple-300 rounded-3xl p-5 transition-all duration-200 hover:-translate-y-1 hover:shadow-xl">
+                    <div class="game-image purple h-36 rounded-2xl bg-gradient-to-tr from-purple-500 to-indigo-500 flex items-center justify-center text-6xl shadow-inner mb-4 group-hover:scale-102 transition-transform">
+                        🧠
+                    </div>
+                    <div class="game-info space-y-2">
+                        <h3 class="text-xl font-bold font-display text-slate-900 group-hover:text-purple-600 transition-colors">Memory Match</h3>
+                        <p class="text-slate-600 font-medium text-xs">
+                            Find matching cards.
+                        </p>
+                        <div class="game-meta pt-2 flex items-center justify-between font-bold text-xs text-slate-500 border-t border-slate-100">
+                            <span class="text-emerald-600 font-display">⭐ Easy</span>
+                            <span class="bg-purple-100 text-purple-700 px-2 py-0.5 rounded-full font-extrabold">+100 XP</span>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Game 2 -->
+                <a href="games.html" class="game-card group bg-white border-2 border-slate-200/80 hover:border-orange-300 rounded-3xl p-5 transition-all duration-200 hover:-translate-y-1 hover:shadow-xl">
+                    <div class="game-image orange h-36 rounded-2xl bg-gradient-to-tr from-orange-400 to-amber-500 flex items-center justify-center text-6xl shadow-inner mb-4 group-hover:scale-102 transition-transform">
+                        🔢
+                    </div>
+                    <div class="game-info space-y-2">
+                        <h3 class="text-xl font-bold font-display text-slate-900 group-hover:text-orange-600 transition-colors">Math Challenge</h3>
+                        <p class="text-slate-600 font-medium text-xs">
+                            Solve the numbers!
+                        </p>
+                        <div class="game-meta pt-2 flex items-center justify-between font-bold text-xs text-slate-500 border-t border-slate-100">
+                            <span class="text-amber-600 font-display">⭐ Medium</span>
+                            <span class="bg-orange-100 text-orange-700 px-2 py-0.5 rounded-full font-extrabold">+150 XP</span>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Game 3 -->
+                <a href="games.html" class="game-card group bg-white border-2 border-slate-200/80 hover:border-blue-300 rounded-3xl p-5 transition-all duration-200 hover:-translate-y-1 hover:shadow-xl">
+                    <div class="game-image blue h-36 rounded-2xl bg-gradient-to-tr from-blue-500 to-cyan-500 flex items-center justify-center text-6xl shadow-inner mb-4 group-hover:scale-102 transition-transform">
+                        🚀
+                    </div>
+                    <div class="game-info space-y-2">
+                        <h3 class="text-xl font-bold font-display text-slate-900 group-hover:text-blue-600 transition-colors">Space Explorer</h3>
+                        <p class="text-slate-600 font-medium text-xs">
+                            Explore the universe.
+                        </p>
+                        <div class="game-meta pt-2 flex items-center justify-between font-bold text-xs text-slate-500 border-t border-slate-100">
+                            <span class="text-amber-600 font-display">⭐ Medium</span>
+                            <span class="bg-blue-100 text-blue-700 px-2 py-0.5 rounded-full font-extrabold">+200 XP</span>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Game 4 -->
+                <a href="games.html" class="game-card group bg-white border-2 border-slate-200/80 hover:border-emerald-300 rounded-3xl p-5 transition-all duration-200 hover:-translate-y-1 hover:shadow-xl">
+                    <div class="game-image green h-36 rounded-2xl bg-gradient-to-tr from-emerald-500 to-teal-500 flex items-center justify-center text-6xl shadow-inner mb-4 group-hover:scale-102 transition-transform">
+                        🔤
+                    </div>
+                    <div class="game-info space-y-2">
+                        <h3 class="text-xl font-bold font-display text-slate-900 group-hover:text-emerald-600 transition-colors">Word Builder</h3>
+                        <p class="text-slate-600 font-medium text-xs">
+                            Build new words.
+                        </p>
+                        <div class="game-meta pt-2 flex items-center justify-between font-bold text-xs text-slate-500 border-t border-slate-100">
+                            <span class="text-emerald-600 font-display">⭐ Easy</span>
+                            <span class="bg-emerald-100 text-emerald-700 px-2 py-0.5 rounded-full font-extrabold">+100 XP</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= STREAK ================= -->
+    <section class="streak-section py-16 bg-white border-t border-slate-100">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-gradient-to-r from-orange-500 via-amber-500 to-yellow-500 rounded-3xl p-8 sm:p-12 text-white shadow-xl flex flex-col lg:flex-row lg:items-center justify-between gap-8">
+                <div class="streak-text max-w-xl space-y-3">
+                    <span class="section-label inline-block text-xs font-black tracking-wider uppercase text-amber-900 bg-white/90 px-3 py-1 rounded-full">
+                        KEEP GOING!
+                    </span>
+                    <h2 class="text-3xl sm:text-4xl font-black font-display tracking-tight">
+                        🔥 You're On Fire!
+                    </h2>
+                    <p class="text-white/95 font-medium text-base sm:text-lg">
+                        You've learned for 7 days in a row. Keep your learning streak alive!
+                    </p>
+                    <div class="pt-2">
+                        <a href="dashboard.html" class="btn primary inline-flex items-center gap-2 px-6 py-3.5 rounded-2xl bg-white hover:bg-slate-100 text-amber-600 font-extrabold text-sm shadow-md transition-all">
+                            View My Progress →
+                        </a>
+                    </div>
+                </div>
+
+                <div class="streak-days grid grid-cols-7 gap-2 sm:gap-3 bg-black/10 backdrop-blur-md p-4 sm:p-5 rounded-2xl border border-white/20">
+                    <div class="day completed flex flex-col items-center justify-center p-2.5 sm:p-3 rounded-xl bg-white text-slate-900 font-display text-xs font-black shadow-sm">
+                        <span class="text-emerald-600 text-sm sm:text-base font-bold mb-1">✓</span>
+                        Mon
+                    </div>
+                    <div class="day completed flex flex-col items-center justify-center p-2.5 sm:p-3 rounded-xl bg-white text-slate-900 font-display text-xs font-black shadow-sm">
+                        <span class="text-emerald-600 text-sm sm:text-base font-bold mb-1">✓</span>
+                        Tue
+                    </div>
+                    <div class="day completed flex flex-col items-center justify-center p-2.5 sm:p-3 rounded-xl bg-white text-slate-900 font-display text-xs font-black shadow-sm">
+                        <span class="text-emerald-600 text-sm sm:text-base font-bold mb-1">✓</span>
+                        Wed
+                    </div>
+                    <div class="day completed flex flex-col items-center justify-center p-2.5 sm:p-3 rounded-xl bg-white text-slate-900 font-display text-xs font-black shadow-sm">
+                        <span class="text-emerald-600 text-sm sm:text-base font-bold mb-1">✓</span>
+                        Thu
+                    </div>
+                    <div class="day completed flex flex-col items-center justify-center p-2.5 sm:p-3 rounded-xl bg-white text-slate-900 font-display text-xs font-black shadow-sm">
+                        <span class="text-emerald-600 text-sm sm:text-base font-bold mb-1">✓</span>
+                        Fri
+                    </div>
+                    <div class="day completed flex flex-col items-center justify-center p-2.5 sm:p-3 rounded-xl bg-white text-slate-900 font-display text-xs font-black shadow-sm">
+                        <span class="text-emerald-600 text-sm sm:text-base font-bold mb-1">✓</span>
+                        Sat
+                    </div>
+                    <div class="day today flex flex-col items-center justify-center p-2.5 sm:p-3 rounded-xl bg-amber-300 text-amber-950 font-display text-xs font-black shadow-md ring-2 ring-white scale-105">
+                        <span class="text-base sm:text-lg mb-1 animate-pulse">🔥</span>
+                        Sun
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= CTA ================= -->
+    <section class="cta py-20 bg-slate-900 text-white relative overflow-hidden text-center">
+        <div class="absolute -top-32 -left-32 w-80 h-80 bg-blue-500/20 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="absolute -bottom-32 -right-32 w-80 h-80 bg-purple-500/20 rounded-full blur-3xl pointer-events-none"></div>
+
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 space-y-6">
+            <div class="cta-stars text-2xl sm:text-3xl tracking-widest text-amber-300">
+                ✨ ⭐ ✨
+            </div>
+            <h2 class="text-3xl sm:text-5xl font-black font-display tracking-tight leading-tight">
+                Ready For Your Next Adventure? 🚀
+            </h2>
+            <p class="text-slate-300 text-base sm:text-xl font-medium max-w-2xl mx-auto leading-relaxed">
+                Learn something new, earn stars and become a Kidzora Champion!
+            </p>
+            <div class="pt-4">
+                <a href="learn.html" class="btn white inline-flex items-center gap-3 px-8 py-4 rounded-2xl bg-white text-slate-900 hover:bg-slate-100 font-extrabold font-display text-lg shadow-xl shadow-white/10 hover:scale-105 transition-all">
+                    Start My Adventure →
+                </a>
+            </div>
+        </div>
+    </section>
+</main>
+
+<!-- ================= FOOTER ================= -->
+<footer class="bg-slate-950 text-slate-300 border-t border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <div class="footer-main grid grid-cols-1 md:grid-cols-5 gap-10">
+            <!-- Brand -->
+            <div class="footer-brand md:col-span-2 space-y-4">
+                <div class="logo flex items-center gap-2 text-2xl font-bold font-display text-white">
+                    <span>🚀</span> <span class="text-blue-400">Kidzora</span>
+                </div>
+                <p class="text-slate-400 text-sm max-w-sm">
+                    Learn today. Discover tomorrow. A safe, colorful, and fun educational hub designed for curious young explorers.
+                </p>
+                <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-slate-900 border border-slate-800 text-xs text-emerald-400 font-medium">
+                    <span>🛡️</span> COPPA Compliant & Ad-Free Safe Walled Garden
+                </div>
+            </div>
+
+            <!-- Column 1 -->
+            <div class="footer-column space-y-3">
+                <h4 class="font-display font-bold text-white text-base">Explore</h4>
+                <ul class="space-y-2 text-sm text-slate-400">
+                    <li><a href="learn.html" class="hover:text-white transition-colors">Learn</a></li>
+                    <li><a href="games.html" class="hover:text-white transition-colors">Games</a></li>
+                    <li><a href="quizzes.html" class="hover:text-white transition-colors">Quizzes</a></li>
+                    <li><a href="stories.html" class="hover:text-white transition-colors">Stories</a></li>
+                </ul>
+            </div>
+
+            <!-- Column 2 -->
+            <div class="footer-column space-y-3">
+                <h4 class="font-display font-bold text-white text-base">Community</h4>
+                <ul class="space-y-2 text-sm text-slate-400">
+                    <li><a href="achievements.html" class="hover:text-white transition-colors">Achievements</a></li>
+                    <li><a href="leaderboard.html" class="hover:text-white transition-colors">Leaderboard</a></li>
+                    <li><a href="parents.html" class="hover:text-white transition-colors">Parents</a></li>
+                    <li><a href="contact.html" class="hover:text-white transition-colors">Contact</a></li>
+                </ul>
+            </div>
+
+            <!-- Column 3 -->
+            <div class="footer-column space-y-3">
+                <h4 class="font-display font-bold text-white text-base">Safety</h4>
+                <ul class="space-y-2 text-sm text-slate-400">
+                    <li><a href="privacy.html" class="hover:text-white transition-colors">Privacy Policy</a></li>
+                    <li><a href="#" class="hover:text-white transition-colors">Safety Center</a></li>
+                    <li><a href="#" class="hover:text-white transition-colors">Help</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom mt-12 pt-8 border-t border-slate-800/80 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
+            <p>
+                © 2026 Kidzora. Made for curious minds. 🌟
+            </p>
+            <div class="flex items-center gap-3 text-base">
+                <span>💙</span>
+                <span>⭐</span>
+                <span>🚀</span>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script>
+    function checkAnswer(button, isCorrect) {
+        const messageEl = document.getElementById('answerMessage');
+        const buttons = document.querySelectorAll('.answers button');
+        
+        buttons.forEach(btn => {
+            btn.classList.remove('bg-emerald-100', 'border-emerald-500', 'text-emerald-900', 'bg-red-100', 'border-red-400', 'text-red-900');
+        });
+
+        if (isCorrect) {
+            button.classList.add('bg-emerald-100', 'border-emerald-500', 'text-emerald-900');
+            messageEl.innerHTML = '🎉 <span class="text-emerald-600 font-extrabold">Awesome job, Alex!</span> 12 - 5 = 7. You earned +20 XP!';
+        } else {
+            button.classList.add('bg-red-100', 'border-red-400', 'text-red-900');
+            messageEl.innerHTML = '🤔 <span class="text-red-500 font-bold">Oops, not quite!</span> Try counting backwards from 12!';
+        }
+    }
+
+    function toggleMenu() {
+        const drawer = document.getElementById('mobileDrawer');
+        drawer.classList.toggle('hidden');
+    }
+
+    function toggleTheme() {
+        document.body.classList.toggle('bg-slate-900');
+    }
+</script>
+</body>
+</html>
